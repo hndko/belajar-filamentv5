@@ -20,6 +20,9 @@ class ProductsTable
                 TextColumn::make('price')
                     ->label('Harga')
                     ->searchable(),
+                TextColumn::make('stock')
+                    ->label('Stock')
+                    ->searchable(),
                 TextColumn::make('description')
                     ->label('Deskripsi')
                     ->searchable(),

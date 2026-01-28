@@ -18,6 +18,9 @@ class ProductForm
                 TextInput::make('price')
                     ->label('Harga')
                     ->required(),
+                TextInput::make('stock')
+                    ->label('Stock')
+                    ->required(),
                 Textarea::make('description')
                     ->label('Deskripsi')
                     ->required(),

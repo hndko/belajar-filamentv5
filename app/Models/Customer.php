@@ -2,8 +2,10 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\Company;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Customer extends Model
 {
@@ -12,5 +14,16 @@ class Customer extends Model
     protected $fillable = [
         'name',
         'email',
+        'active',
+        'company_id',
     ];
+
+    protected $casts = [
+        'active' => 'boolean',
+    ];
+
+    public function company(): BelongsTo
+    {
+        return $this->belongsTo(Company::class, 'company_id', 'id');
+    }
 }

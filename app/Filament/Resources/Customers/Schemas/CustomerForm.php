@@ -2,8 +2,10 @@
 
 namespace App\Filament\Resources\Customers\Schemas;
 
-use Filament\Forms\Components\TextInput;
 use Filament\Schemas\Schema;
+use Filament\Forms\Components\Select;
+use Filament\Forms\Components\Toggle;
+use Filament\Forms\Components\TextInput;
 
 class CustomerForm
 {
@@ -17,6 +19,12 @@ class CustomerForm
                 TextInput::make('email')
                     ->required()
                     ->maxLength(255),
+                Select::make('company_id')
+                    ->label('Company')
+                    ->relationship('company', 'name')
+                    ->required(),
+                Toggle::make('active')
+                    ->required(),
             ]);
     }
 }
